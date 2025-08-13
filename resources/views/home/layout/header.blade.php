@@ -32,7 +32,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <a href="" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    <a href="/login" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                 </form>
             </div>
         </div>

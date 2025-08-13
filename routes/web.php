@@ -38,3 +38,19 @@ Route::get('/contact', function () {
     ];
     return view('home.layout.wrapper', $data);
 });
+
+
+Route::get('/login', function () {
+    $data = [
+        'content' => 'home/auth/login'
+    ];
+    return view('home.layout.wrapper', $data);
+});
+
+// =====ADMIN====
+Route::prefix('/admin')->group(function() {
+     Route::get('/dashboard', function() {
+        return view('admin.layouts.wrapper');
+     });
+
+});
