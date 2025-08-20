@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminBannerController;
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     // return view('home.index');
@@ -48,9 +51,14 @@ Route::get('/login', function () {
 });
 
 // =====ADMIN====
-Route::prefix('/admin')->group(function() {
-     Route::get('/dashboard', function() {
-        return view('admin.layouts.wrapper');
-     });
+Route::prefix('/admin')->group(function () {
+    Route::get('/dashboard', function () {
+        $data = [
+            'content' => 'admin/dashboard/index'
+        ];
+        return view('admin.layouts.wrapper', $data);
+    });
 
+    Route::resource('/banner', AdminBannerController::class);
+    Route::resource('/user', AdminUserController::class);
 });
