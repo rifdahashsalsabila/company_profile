@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminAbouController;
 use App\Http\Controllers\AdminBannerController;
+use App\Http\Controllers\AdminBlogController;
+use App\Http\Controllers\AdminKategoriController;
+use App\Http\Controllers\AdminService;
 use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,7 +62,11 @@ Route::prefix('/admin')->group(function () {
         ];
         return view('admin.layouts.wrapper', $data);
     });
-
+    
+    Route::resource('/posts/blog', AdminBlogController::class);
+    Route::resource('/posts/kategori', AdminKategoriController::class);
     Route::resource('/banner', AdminBannerController::class);
+    Route::resource('/service', AdminService::class );
     Route::resource('/user', AdminUserController::class);
+    Route::resource('/about', AdminAbouController::class);
 });

@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Tjahya Teknik :: Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -36,7 +36,7 @@
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('admin/posts') ? 'menu-is-opening menu-open':'' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -46,13 +46,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="/admin/posts/blog" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Blog</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="/admin/posts/kategori" class="nav-link {{Request::is('admin/posts/kategori') ? 'active':'' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori</p>
                 </a>
@@ -61,7 +61,7 @@
           </li>
          
        <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="/admin/about" class="nav-link" {{ Request::is('admin/about') ? 'active':'' }}>
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 About
@@ -71,7 +71,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="/admin/service" class="nav-link" {{ Request::is('admin/service') ? 'active':'' }}>
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Services
