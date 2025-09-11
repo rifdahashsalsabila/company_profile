@@ -26,11 +26,11 @@
         </li>
 
 
-        <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+        <li class="nav-item" {{ Request::is('admin/pesan') ? 'active':'' }}>
+            <a href="/admin/pesan" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
-                Saran
+                Pesan
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>

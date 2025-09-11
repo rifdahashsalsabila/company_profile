@@ -6,7 +6,7 @@ use App\Models\About;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminAbouController extends Controller
+class AdminAboutController extends Controller
 {
     /**
      * Display a listing of the resource.

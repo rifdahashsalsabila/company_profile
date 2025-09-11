@@ -16,7 +16,7 @@ class AdminService extends Controller
         //
         $data = [
             'title' => 'Manajemen Service',
-            'service$service' => Service::all(),
+            'service' => Service::all(),
             'content' => 'admin/service/index'
         ];
         return view('admin.layouts.wrapper', $data);

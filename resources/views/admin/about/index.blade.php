@@ -41,7 +41,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Deskripsi</label>
-                                <textarea name="desc" class="form-control @error('cover') is-invalid 
+                                <textarea name="desc" id="summernote" class="form-control @error('cover') is-invalid 
                                  @enderror" id="" cols="30" rows="10">{{ $about->desc }}</textarea>
                              @error('desc')
                              <div class="invalid-feedback">
