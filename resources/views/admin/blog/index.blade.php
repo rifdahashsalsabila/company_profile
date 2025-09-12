@@ -9,6 +9,7 @@
                         <td>No</td>
                         <td>Cover</td>
                         <td>Title</td>
+                        <td>Kategori</td>
                         <td>Action</td>
                     </tr>
                     @foreach ($blog as $item )
@@ -20,6 +21,7 @@
                         <td>
                             <a href="/admin/posts/blog/{{ $item->id }}"><b>{{ $item->title }}</b></a>
                         </td>
+                        <td>{{ $item->kategori->name }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="/admin/posts/blog/{{ $item->id }}/edit" class="btn btn-success mx-2"><i class="fas fa-edit"></i> Edit</a>

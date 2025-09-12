@@ -16,7 +16,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Pesan</span>
                 <span class="info-box-number">
-                    10
+                    {{ $pesan }}
                     <small>Pesan</small>
                 </span>
             </div>
@@ -32,7 +32,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Blog</span>
                 <span class="info-box-number">
-                    10
+                    {{ $blog }}
                     <small>Blog</small>
                 </span>
             </div>
@@ -48,7 +48,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Service</span>
                 <span class="info-box-number">
-                    10
+                    {{ $service }}
                     <small>Service</small>
                 </span>
             </div>
@@ -64,7 +64,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">User</span>
                 <span class="info-box-number">
-                    10
+                    {{ $user }}
                     <small>User</small>
                 </span>
             </div>
