@@ -21,7 +21,7 @@
                         <td>
                             <a href="/admin/posts/blog/{{ $item->id }}"><b>{{ $item->title }}</b></a>
                         </td>
-                        <td>{{ $item->kategori->name }}</td>
+                       <td>{{ $item->kategori->name ?? '-' }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="/admin/posts/blog/{{ $item->id }}/edit" class="btn btn-success mx-2"><i class="fas fa-edit"></i> Edit</a>

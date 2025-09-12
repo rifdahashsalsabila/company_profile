@@ -13,6 +13,6 @@ class Blog extends Model
     protected $fillable = ['title', 'body', 'cover'];
 
     function kategori(){
-        return $this->belongsTo(Kategori::class);
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }

@@ -31,8 +31,9 @@ class AdminBlogController extends Controller
         //
         $data = [
             'title' => 'Tambah blog',
-            'kategori' => Kategori::get(),
+            'kategori' => Kategori::all(),
             'content' => 'admin/blog/add'
+            
         ];
         return view('admin.layouts.wrapper', $data);
     }
@@ -89,6 +90,7 @@ class AdminBlogController extends Controller
         $data = [
             'title' => 'Edit blog',
             'blog' => Blog::find($id),
+            'kategori' => Kategori::all(),
             'content' => 'admin/blog/add'
         ];
         return view('admin.layouts.wrapper', $data);
@@ -105,7 +107,7 @@ class AdminBlogController extends Controller
             'title' => 'required',
             'body' => 'required',
             'kategori_id' => 'required',
-            'cover' => 'required',
+            // 'cover' => 'required',
         ]);
 
 
@@ -117,9 +119,7 @@ class AdminBlogController extends Controller
             $storage = 'uploads/blogs/';
             $cover->move($storage, $file_name);
             $data['cover'] = $storage . $file_name;
-        } else {
-            $data['cover'] = null;
-        }
+        } 
 
 
 
