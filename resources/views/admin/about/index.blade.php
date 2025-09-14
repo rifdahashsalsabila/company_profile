@@ -1,59 +1,40 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card-body">
-          
-            <form action="/admin/about/update" method="POST" enctype="multipart/form-data">
-                @method('PUT')
-                
-                    @csrf
-                   
-                    <div class="row">
-                        <div class="col-md-6">
-                             <div class="form-group">
-                        <label for="">Nama Perusahaan</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid
-                    @enderror" placeholder="Nama Perusahaan" value="{{isset($about) ? $about->headline : old('name') }}">
-                        @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
+@extends('admin.layouts.app')
+
+@section('maincontent')
+
+<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="">Cover</label>
-                        <input type="file" name="cover" class="form-control @error('cover') is-invalid
-                    @enderror" placeholder="cover">
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </div>
 
 
-                        @error('cover')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-
-                        @if (isset($about))
-                            <img src="/{{ $about->cover }}" width="100" class="mt-4" alt="">
-                        @endif
-
-                        </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Deskripsi</label>
-                                <textarea name="desc" class="form-control @error('cover') is-invalid 
-                                 @enderror" id="" cols="30" rows="10">{{ $about->desc }}</textarea>
-                             @error('desc')
-                             <div class="invalid-feedback">
-                                {{ $message }}
-                             </div>
-                             @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-        </div>
-    </div>
-</div>
+@endsection

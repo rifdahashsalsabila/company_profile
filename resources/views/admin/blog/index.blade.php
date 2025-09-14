@@ -17,7 +17,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="/{{ $item->cover }}" width="100px" alt=""></td>
                         <td>
-                            <a href="/admin/posts/blog/{{ $item->id }}"><b>{{ $item->tittle }}</b></a>
+                            <a href="/admin/posts/blog/{{ $item->id }}"><b>{{ $item->title }}</b></a>
                         </td>
                         <td>
                             <div class="d-flex">

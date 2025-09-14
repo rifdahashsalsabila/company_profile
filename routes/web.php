@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutAdminController;
 use App\Http\Controllers\AdminAbouController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminBlogController;

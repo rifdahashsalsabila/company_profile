@@ -13,13 +13,15 @@ class AdminService extends Controller
      */
     public function index()
     {
-        //
-        $data = [
-            'title' => 'Manajemen Service',
-            'service$service' => Service::all(),
-            'content' => 'admin/service/index'
-        ];
-        return view('admin.layouts.wrapper', $data);
+        $service=Service::all();
+        return view('admin.service.index', compact('service'));
+    
+        // $data = [
+        //     'title' => 'Manajemen Service',
+        //     'service$service' => Service::all(),
+        //     'content' => 'admin/service/index'
+        // ];
+        // return view('admin.layouts.wrapper' $data);
     }
 
     /**

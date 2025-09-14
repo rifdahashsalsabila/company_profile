@@ -11,7 +11,7 @@
                         <td>Icon</td>
                         <td>Action</td>
                     </tr>
-                    @foreach ($service as $item )
+                    @foreach ($service as $item)
 
                     <tr>
                         <td>{{ $loop->iteration }}</td>
