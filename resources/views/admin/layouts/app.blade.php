@@ -44,7 +44,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-@yield('maincontent')
+@yield('content')
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

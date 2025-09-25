@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class About extends Model
 {
+
     use HasFactory;
 
-    protected $guarded = [];
+    protected $table = 'abouts';
+
+    protected $fillable = [
+        'name',
+        'cover',
+        'desc',
+    ];
 }

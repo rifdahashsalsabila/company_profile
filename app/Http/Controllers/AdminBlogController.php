@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminBlogController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -16,7 +17,7 @@ class AdminBlogController extends Controller
         //
         $data = [
             'title' => 'Manajemen blog',
-            'blog' => Blog::all(),
+            'blog' => Blog::with('kategori')->get(),
             'content' => 'admin/blog/index'
         ];
         return view('admin.layouts.wrapper', $data);
@@ -30,7 +31,9 @@ class AdminBlogController extends Controller
         //
         $data = [
             'title' => 'Tambah blog',
+            'kategori' => Kategori::all(),
             'content' => 'admin/blog/add'
+            
         ];
         return view('admin.layouts.wrapper', $data);
     }
@@ -40,14 +43,15 @@ class AdminBlogController extends Controller
      */
     public function store(Request $request)
     {
-    
+
         $data = $request->validate([
             'title' => 'required',
+            'kategori_id' => 'required',
             'body' => 'required',
             'cover' => 'required',
         ]);
 
-    
+
         if ($request->hasFile('cover')) {
             $cover = $request->file('cover');
             $file_name = time() . '-' . $cover->getClientOriginalName();
@@ -69,7 +73,7 @@ class AdminBlogController extends Controller
      */
     public function show(string $id)
     {
-           $data = [
+        $data = [
             'title' => 'Edit blog',
             'blog' => Blog::find($id),
             'content' => 'admin/blog/show'
@@ -86,6 +90,7 @@ class AdminBlogController extends Controller
         $data = [
             'title' => 'Edit blog',
             'blog' => Blog::find($id),
+            'kategori' => Kategori::all(),
             'content' => 'admin/blog/add'
         ];
         return view('admin.layouts.wrapper', $data);
@@ -101,7 +106,8 @@ class AdminBlogController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'cover' => 'required',
+            'kategori_id' => 'required',
+            // 'cover' => 'required',
         ]);
 
 
@@ -113,9 +119,7 @@ class AdminBlogController extends Controller
             $storage = 'uploads/blogs/';
             $cover->move($storage, $file_name);
             $data['cover'] = $storage . $file_name;
-        } else {
-            $data['cover'] = null;
-        }
+        } 
 
 
 

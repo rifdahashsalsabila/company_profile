@@ -100,7 +100,7 @@ class AdminKategoriController extends Controller
     public function destroy(string $id)
     {
         //
-        $kategori = Kategori::find($id);
+        $kategori = Kategori::all($id);
         $kategori->delete();
         Alert::success('Success Title', 'Success Message');
         return redirect('/admin/posts/kategori');

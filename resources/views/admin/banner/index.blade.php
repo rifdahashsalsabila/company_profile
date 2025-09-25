@@ -1,6 +1,4 @@
-@extends('admin.layouts.app')
 
-@section('maincontent')
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -23,9 +21,9 @@
                         <td>
                             <div class="d-flex">
                                 <a href="/admin/banner/{{ $item->id }}/edit" class="btn btn-success mx-2"><i class="fas fa-edit"></i> Edit</a>
-                                <form action="{{ route('banner.destroy', $item->id) }}" method="POST">
+                                <form action="/admin/banner/{{ $item->id }}" method="POST">
                                     @csrf
-                                    @method('DELETE')
+                                    @method('delete')
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
                                 </form>
                             </div>
@@ -37,5 +35,5 @@
         </div>
     </div>
 </div>
-@endsection
+
 

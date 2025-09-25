@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->text('desc')->nullable();
+            $table->string('name')->nullable(); 
+            $table->text('desc');
             $table->text('cover')->nullable();
             $table->timestamps();
         });

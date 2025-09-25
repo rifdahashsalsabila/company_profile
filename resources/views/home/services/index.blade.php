@@ -7,15 +7,14 @@
     </div>
 
     <div class="row mt-5">
-        @for ($i = 0 ; $i < 4; $i++)
-
-            <div class="col-my-3">
-            <div class="text-center">
-                <i class="fas fa-home fa-2x text-secondary"></i>
-                <h5><b>Pemasangan Ac</b></h5>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit quasi sit accusamus eligendi nam veniam et nisi inventore minima rerum!</p>
-            </div>
-    </div>
-    @endfor
+       @foreach ($service as $item)
+                   <div class="col-my-3">
+                   <div class="text-center">
+                       <i class="{{ $item->icon }} fa-2x text-secondary"></i>
+                       <h5><b>{{ $item->title }}</b></h5>
+                      {!! Illuminate\Support\Str::limit($item->desc, 100) !!}
+                   </div>
+           </div>
+       @endforeach
 </div>
 </div>

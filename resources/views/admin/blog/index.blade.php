@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -9,16 +10,19 @@
                         <td>No</td>
                         <td>Cover</td>
                         <td>Title</td>
+                        <td>Kategori</td>
                         <td>Action</td>
                     </tr>
                     @foreach ($blog as $item )
 
                     <tr>
+
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="/{{ $item->cover }}" width="100px" alt=""></td>
                         <td>
                             <a href="/admin/posts/blog/{{ $item->id }}"><b>{{ $item->title }}</b></a>
                         </td>
+                       <td>{{ $item->kategori->name ?? '-' }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="/admin/posts/blog/{{ $item->id }}/edit" class="btn btn-success mx-2"><i class="fas fa-edit"></i> Edit</a>
@@ -36,3 +40,5 @@
         </div>
     </div>
 </div>
+
+

@@ -1,5 +1,5 @@
 <style>
-    .menu-active{
+    .menu-active {
         color: black !important;
         font-weight: bold;
     }
@@ -32,7 +32,11 @@
                     </li>
                 </ul>
                 <form class="d-flex">
+                    @auth
+                    <a href="/admin/dashboard" class="btn btn-outline-secondary"><i class="fas fa-user"></i> Dashboard</a>
+                    @else
                     <a href="/login" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    @endauth
                 </form>
             </div>
         </div>

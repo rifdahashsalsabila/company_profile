@@ -13,15 +13,18 @@ class AdminService extends Controller
      */
     public function index()
     {
+
         $service=Service::all();
         return view('admin.service.index', compact('service'));
-    
-        // $data = [
-        //     'title' => 'Manajemen Service',
-        //     'service$service' => Service::all(),
-        //     'content' => 'admin/service/index'
-        // ];
-        // return view('admin.layouts.wrapper' $data);
+
+        
+        $data = [
+            'title' => 'Manajemen Service',
+            'service' => Service::get(),
+            'content' => 'admin.service.index'
+        ];
+        return view('admin.layouts.wrapper', $data);
+
     }
 
     /**
@@ -40,22 +43,22 @@ class AdminService extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-        // dd($request->all());
-        $data = $request->validate([
-            'title' => 'required',
-            'icon' => 'required',
-            'desc' => 'required',
-            
-        ]);
+ public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'icon'  => 'nullable|string|max:255',
+        'desc'  => 'nullable|string',
+    ]);
 
-       
-        Service::create($data);
-        Alert::success('Success', 'Data ditambahkan');
-        return redirect('/admin/service');
-    }
+    Service::create([
+        'title' => $request->title,
+        'icon'  => $request->icon,
+        'desc'  => $request->desc,
+    ]);
+
+    return redirect()->route('service.index')->with('success', 'Data berhasil disimpan');
+}
 
     /**
      * Display the specified resource.

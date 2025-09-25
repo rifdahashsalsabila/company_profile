@@ -115,9 +115,7 @@ class AdminBannerController extends Controller
             $storage = 'uploads/banners/';
             $gambar->move($storage, $file_name);
             $data['gambar'] = $storage . $file_name;
-        } else {
-            $data['gambar'] = null;
-        }
+        } 
 
 
 
