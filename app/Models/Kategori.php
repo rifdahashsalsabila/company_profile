@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    use HasFactory;
+   protected $fillable = ['nama_kategori'];
 
-    protected $guarded = [];
+    // Relasi: 1 kategori punya banyak blog
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'kategori_id');
+    }
 }

@@ -7,6 +7,32 @@
     .img-banner {
         width: 100%;
     }
+
+    .text-shadow-white {
+        color: #fff;
+        text-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.8),
+            /* bayangan utama */
+            4px 4px 8px rgba(0, 0, 0, 0.55);
+    }
+
+    .title-section {
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 2px;
+        color: #202025ff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .title-section::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #8a99a8ff;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
 </style>
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -18,21 +44,28 @@
 
     <div class="carousel-inner">
 
-    @foreach ($banner as $key => $item)
-    
-    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-        <div class="wrapper-img-banner">
-            <img src="/{{ $item->gambar }}" class="img-banner" alt="">
-        </div>
-        <div class="container">
-            <div class="carousel-caption text-start" style="color: black;">
-                <h1>{{ $item->headline }}</h1>
-                <p>{{ $item->desc }}</p>
+        @foreach ($banner as $key => $item)
+
+        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+            <div class="wrapper-img-banner">
+                <img src="/{{ $item->gambar }}" class="img-banner" alt="">
+            </div>
+            <div class="container">
+                <div class="carousel-caption text-start" style="color: white;">
+                    <h1 class="text-shadow-white">{{ $item->headline }}</h1>
+                    <p>{{ $item->desc }}</p>
+                    <p>
+                        <a href="{{ route('booking.create') }}" class="btn btn-outline-secondary">
+                            <i class="fa-solid fa-calendar-check"></i> Booking here
+                        </a>
+
+                    </p>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    @endforeach
+        @endforeach
 
 
 
@@ -50,110 +83,127 @@
 
 <div class="container mt-5">
     <div class="text-center">
-        <h4 class="">About</h4>
-        <p>Bingung cari ac atau jasa service? Serahkan pada kami!</p>
+        <h4 class="w-bold display-8 text-uppercase position-relative d-inline-block title-section">About Us</h4>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <img src="/{{ $about->cover }}" width="100%" alt="">
+            <img src="/{{ optional ($about)->cover }}" width="100%" alt="">
         </div>
         <div class="col-md-6">
-        {{ $about->desc }}
-        </div>
-    </div>
-</div>
-
-<div class="bg-secondary my-5">
-    <div class="container py-5">
-        <div class="text-white">
-            <h5>Pelajari Tentang Kami</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet expedita fugit, libero eligendi exercitationem mollitia? Quis obcaecati enim blanditiis odit, tempora sequi deleniti! Porro vitae aliquid quibusdam ex neque quisquam.</p>
-        </div>
-    </div>
-</div>
-
-<div class="container my-4">
-    <div class="text-center">
-        <h4 class="">Services</h4>
-        <p>Kami melayani berbagai kebutuhan seputar AC, mulai dari service kerusakan ringan hingga perbaikan berat</p>
-    </div>
-
-    <div class="row">
-        @foreach ($service as $item)
-        
-     
-            <div class="col-md-3">
-            <div class="text-center">
-                <i class="fas fa-home fa-2x text-secondary"></i>
-                <h5><b>{{ $item->title }}</b></h5>
-                <p>{{ $item->desc }}</p>
+            <div class="d-flex h-100 align-items-center">
+                <p class="mb-0">
+                    {!! optional($about)->desc !!}
+                </p>
             </div>
-    </div>
-    @endforeach
-</div>
-<div class="text-center mt-3">
-    <a href="" class="btn btn-secondary px-3">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-
-<div class="bg-light my-5">
-    <div class="container py-5">
-        <div class="text-dark text-center">
-            <h5>Pelajari Tentang Kami</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet expedita fugit, libero eligendi exercitationem mollitia? Quis obcaecati enim blanditiis odit, tempora sequi deleniti! Porro vitae aliquid quibusdam ex neque quisquam.</p>
         </div>
     </div>
 </div>
 
-<style>
-   
-</style>
-<div class="container my-2">
-    <div class="text-center">
-        <h4 class="">Blog</h4>
-        <p>Kami melayani berbagai kebutuhan seputar AC, mulai dari service kerusakan ringan hingga perbaikan berat</p>
-    </div>
 
-<div class="row">
-   @foreach ( $blog as $item )
-   
-       <div class="col-md-3">
-           <div class="card shadow-sm">
-               <div class="wrapper-card-blog"></div>
-               <img src="/{{ $item->cover }}" class="img-card-blog" alt="">
-           </div>
-           <div class="p-3">
-           <a href="" class="text-decoration-none"><h5>{{ $item->title }}</h5></a>
-           <p>
-              {!! Illuminate\Support\Str::limit($item->body, 100) !!}
-               <a href="/blog/show/{{ $item->id }}">Selengkapnya &RightArrow;</a>
-              </p>
-           </div>
-       </div>
-   
-   @endforeach
-    
-        
-     
-        <div class="text-center mt-3">
-        <a href="" class="btn btn-secondary px-3">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-       </div>
-    </div>
-</div>
-
-<div class="bg-secondary my-5">
+<!-- <div style="background-color: #8a99a8ff;">
     <div class="container py-5">
         <div class="text-white">
             <h5>Pelajari Tentang Kami</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet expedita fugit, libero eligendi exercitationem mollitia? Quis obcaecati enim blanditiis odit, tempora sequi deleniti! Porro vitae aliquid quibusdam ex neque quisquam.</p>
         </div>
     </div>
+</div> -->
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h4 class="w-bold display-8 text-uppercase position-relative d-inline-block title-section">
+            Services
+        </h4>
+        <p class="text-muted mt-3">
+            Tjahya Teknik menyediakan berbagai layanan profesional untuk memenuhi kebutuhan Anda
+            dalam hal pembelian, pemasangan, perawatan, dan perbaikan AC.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        @foreach ($service as $item)
+        <div class="col-md-3 col-sm-6">
+            <div class="text-center px-3">
+                <i class="{{ $item->icon }} fa-3x text-secondary mb-3"></i>
+                <h5 class="fw-semibold mb-2">{{ $item->title }}</h5>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="" class="btn btn-outline-secondary px-4">
+            Selengkapnya <i class="fas fa-angle-double-right ms-1"></i>
+        </a>
+    </div>
 </div>
 
-<div class="container my-2 mb-5">
-    <div class="text-center">
-        <h4 class="">Hubungi Kami</h4>
-        <p>Segera melakukan konsultasi kerusakan AC anda</p>
-        <a href="" class="btn btn-secondary px-5" target="blank"><i class="fas fa-phone"></i>Hubungi Kami WhatsApp</a>
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h4 class="w-bold display-8 text-uppercase position-relative d-inline-block title-section">
+            Blog
+        </h4>
+        <p class="text-muted mt-3">
+            Kami melayani berbagai kebutuhan seputar AC, mulai dari service kerusakan ringan hingga perbaikan berat.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        @foreach ($blog as $item)
+        <div class="col-md-3 col-sm-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="/{{ $item->cover }}" class="card-img-top img-fluid" alt="Cover Blog">
+
+                <div class="card-body">
+                    <a href="/blog/show/{{ $item->id }}" class="text-decoration-none">
+                        <h5 class="fw-semibold mb-2">{{ $item->title }}</h5>
+                    </a>
+                    <p class="text-muted mb-3">
+                        {!! Illuminate\Support\Str::limit($item->body, 100) !!}
+                    </p>
+                    <a href="/blog/show/{{ $item->id }}" class="btn btn-outline-secondary btn-sm">
+                        Selengkapnya &RightArrow;
+                    </a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="/blog" class="btn btn-outline-secondary px-4">
+            Lihat Semua Artikel
+            <i class="fas fa-angle-double-right ms-1"></i>
+        </a>
+    </div>
+</div>
+
+
+<!-- <div class="bg-secondary my-5">
+    <div class="container py-5">
+        <div class="text-white">
+            <h5>Pelajari Tentang Kami</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet expedita fugit, libero eligendi exercitationem mollitia? Quis obcaecati enim blanditiis odit, tempora sequi deleniti! Porro vitae aliquid quibusdam ex neque quisquam.</p>
+        </div>
+    </div>
+</div> -->
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm text-center p-5">
+                <h4 class="w-bold display-8 text-uppercase position-relative d-inline-block title-section">Hubungi Kami</h4>
+                <p class="text-muted mb-4">
+                    Segera konsultasikan kerusakan AC Anda dengan tim Tjahya Teknik.
+                    Kami siap membantu dengan cepat dan profesional.
+                </p>
+                <a href="https://wa.me/6285735165385"
+                    class="btn btn-success px-4 py-2"
+                    target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>
+                    Hubungi via WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
 </div>

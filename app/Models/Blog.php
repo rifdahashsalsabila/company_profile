@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body', 'cover'];
+    protected $fillable = ['title', 'body', 'cover', 'kategori_id'];
 
     function kategori(){
         return $this->belongsTo(Kategori::class, 'kategori_id');

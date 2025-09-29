@@ -2,7 +2,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
-                <a href="/admin/posts/blog" class="btn btn-primary px-4"> <i class="fas fa-arrow-left">kembali</i></a>
+                <a href="/admin/posts/blog" class="btn btn-primary px-4"> <i class="fas fa-arrow-left"></i>kembali</a>
                 <h4><b>{{ $blog->title }}</b></h4>
                 <p>date created {{ $blog->created_at }}</p>
 

@@ -44,15 +44,15 @@
 
         <div class="col-md-6">
             <div class="d-flex mt-3">
-                <i class="fas fa-phone fa-2x px-3"></i> <h3>000000</h3>
+                <i class="fas fa-phone fa-2x px-8"></i> <h3>000000</h3>
             </div>
 
              <div class="d-flex mt-3">
-                <i class="fas fa-envelope fa-2x px-3"></i><h3> Tjahya_teknik@gmail.com</h3>
+                <i class="fas fa-envelope fa-2x px-8"></i><h3> Tjahya_teknik@gmail.com</h3>
             </div>
 
             <div class="d-flex mt-3">
-                <i class="fas fa-map-marker fa-2x px-3"></i><h3>JL. Raya Cadas Kukun, Rajeg</h3>
+                <i class="fas fa-map-marker fa-2x px-8"></i><h3>JL. Raya Cadas Kukun, Rajeg</h3>
             </div>
         </div>
     </div>

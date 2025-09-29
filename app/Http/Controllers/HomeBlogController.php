@@ -10,9 +10,19 @@ class HomeBlogController extends Controller
      function index()
     {
       $data = [
-        'blog'  => Blog::first(),
+        'blog'  => Blog::all(),
         'content' => '/home/blog/index'
       ];
       return view('home.layout.wrapper', $data);
     }
+
+    public function show(string $id)
+    {
+        $data = [
+            'blog' => Blog::find($id),
+            'content' => 'home/blog/show'
+        ];
+        return view('home.layout.wrapper', $data);
+    }
+
 }
