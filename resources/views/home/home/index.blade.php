@@ -9,11 +9,12 @@
     }
 
     .text-shadow-white {
-        color: #fff;
-        text-shadow:
-            2px 2px 4px rgba(0, 0, 0, 0.8),
-            /* bayangan utama */
-            4px 4px 8px rgba(0, 0, 0, 0.55);
+        font-family: 'Poppins', sans-serif;
+        color: #2f2f35ff; 
+           letter-spacing: 0.5px;
+           text-shadow: 
+              1px 1px 3px rgba(255, 255, 255, 0.9), 
+              2px 2px 6px rgba(116, 110, 110, 0.4);
     }
 
     .title-section {
@@ -53,7 +54,7 @@
             <div class="container">
                 <div class="carousel-caption text-start" style="color: white;">
                     <h1 class="text-shadow-white">{{ $item->headline }}</h1>
-                    <p>{{ $item->desc }}</p>
+                    <p class="text-shadow-white">{{ $item->desc }}</p>
                     <p>
                         <a href="{{ route('booking.create') }}" class="btn btn-outline-secondary">
                             <i class="fa-solid fa-calendar-check"></i> Booking here

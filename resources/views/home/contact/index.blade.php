@@ -1,58 +1,63 @@
-<div class="contain">
-    
-
-<div class="text-center">
-        <h4 class="">Kontak Kami</h4>
-        <p>Hubungi Kami untuk konsultasi kerusakan AC dan segera melakukan layanan service AC</p>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Kontak Kami</h2>
+        <p class="text-muted">Hubungi kami untuk konsultasi kerusakan AC dan segera melakukan layanan service AC</p>
     </div>
 
-    <div class="row">
+    <div class="row g-4">
+        <!-- Form -->
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Kirim Pesan</h5>
                     <form action="/contact/send" method="POST">
                         @csrf
-                        <div class="form-group">
-                         <label for="">Nama</label>
-                          <input type="text" class="form-control @error('name') is-invalid
-                         @enderror" name="name" placeholder="Masukan Nama Anda">
-                         @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                         @enderror
-                </div>
-
-                        <div class="form-group mt-4">
-                            <label for="">Isi Pesan</label>
-                            <textarea name="desc" id="" cols="30" rows="10" class="form-control @error('desc') is-invalid
-                             @enderror" placeholder="Masukan Pesan Anda"></textarea>
-                                @error('desc')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                @enderror
+                        <div class="mb-3">
+                            <label class="form-label">Nama</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                                   name="name" placeholder="Masukan Nama Anda">
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
 
+                        <div class="mb-3">
+                            <label class="form-label">Isi Pesan</label>
+                            <textarea name="desc" rows="5" 
+                                      class="form-control @error('desc') is-invalid @enderror" 
+                                      placeholder="Masukan Pesan Anda"></textarea>
+                            @error('desc')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-
-                        <button type="submit" class="btn btn-secondary mt-3">Kirim</button>
-                       </form>
-                    </div>
+                        <button type="submit" class="btn btn-primary px-4">Kirim</button>
+                    </form>
+                </div>
             </div>
         </div>
 
+        <!-- Info Kontak -->
         <div class="col-md-6">
-            <div class="d-flex mt-3">
-                <i class="fas fa-phone fa-2x px-8"></i> <h3>000000</h3>
-            </div>
+            <div class="card shadow-sm border-0 rounded-3 h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Informasi Kontak</h5>
 
-             <div class="d-flex mt-3">
-                <i class="fas fa-envelope fa-2x px-8"></i><h3> Tjahya_teknik@gmail.com</h3>
-            </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-phone fa-lg text-primary me-3"></i>
+                        <span class="fs-6">000000</span>
+                    </div>
 
-            <div class="d-flex mt-3">
-                <i class="fas fa-map-marker fa-2x px-8"></i><h3>JL. Raya Cadas Kukun, Rajeg</h3>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-envelope fa-lg text-primary me-3"></i>
+                        <span class="fs-6">Tjahya_teknik@gmail.com</span>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt fa-lg text-primary me-3"></i>
+                        <span class="fs-6">JL. Raya Cadas Kukun, Rajeg</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
