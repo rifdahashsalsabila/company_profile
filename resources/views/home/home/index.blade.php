@@ -9,11 +9,12 @@
     }
 
     .text-shadow-white {
-        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        color: #2f2f35ff;
+        letter-spacing: 0.5px;
         text-shadow:
-            2px 2px 4px rgba(0, 0, 0, 0.8),
-            /* bayangan utama */
-            4px 4px 8px rgba(0, 0, 0, 0.55);
+            1px 1px 3px rgba(255, 255, 255, 0.9),
+            2px 2px 6px rgba(116, 110, 110, 0.4);
     }
 
     .title-section {
@@ -21,7 +22,6 @@
         letter-spacing: 2px;
         color: #202025ff;
         text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-
     }
 
     .title-section::after {
@@ -53,11 +53,20 @@
             <div class="container">
                 <div class="carousel-caption text-start" style="color: white;">
                     <h1 class="text-shadow-white">{{ $item->headline }}</h1>
-                    <p>{{ $item->desc }}</p>
+                    <p class="text-shadow-white">{{ $item->desc }}</p>
                     <p>
+                        @auth
+                        @if(auth()->user()->role === 'customer')
                         <a href="{{ route('booking.create') }}" class="btn btn-outline-secondary">
-                            <i class="fa-solid fa-calendar-check"></i> Booking here
+                            <i class="fa-solid fa-calendar-check"></i> Booking Here
                         </a>
+                        @endif
+                        @endauth
+
+                        @guest
+                        <a href="{{ route('register') }}" class="btn btn-outline-secondary">
+                            <i class="fa-solid fa-calendar-check"></i>Booking Here</a>
+                        @endguest
 
                     </p>
 
@@ -159,7 +168,7 @@
                         <h5 class="fw-semibold mb-2">{{ $item->title }}</h5>
                     </a>
                     <p class="text-muted mb-3">
-                        {!! Illuminate\Support\Str::limit($item->body, 100) !!}
+                        {!! Illuminate\Support\Str::limit($item->body) !!}
                     </p>
                     <a href="/blog/show/{{ $item->id }}" class="btn btn-outline-secondary btn-sm">
                         Selengkapnya &RightArrow;
@@ -169,6 +178,7 @@
         </div>
         @endforeach
     </div>
+
 
     <div class="text-center mt-5">
         <a href="/blog" class="btn btn-outline-secondary px-4">

@@ -32,11 +32,17 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    @auth
+                    @auth 
                     <a href="/admin/dashboard" class="btn btn-outline-secondary"><i class="fas fa-user"></i> Dashboard</a>
                     @else
                     <a href="/login" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                     @endauth
+                    @if(auth()->check() && auth()->user()->role === 'customer')
+                    <a href="/logout" class="btn btn-outline-secondary"><i class="far fa-caret-square-left"></i>
+                        Logout
+                    </a>
+                    @endif
+
                 </form>
             </div>
         </div>
