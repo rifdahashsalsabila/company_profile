@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -10,6 +9,7 @@
                         <td>No</td>
                         <td>Name</td>
                         <td>Email</td>
+                        <td>Role</td>
                         <td>Action</td>
                     </tr>
                     @foreach ($user as $item )
@@ -18,6 +18,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{$item->name}}</td>
                         <td>{{ $item->email }}</td>
+                        <td>{{$item->role}}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="/admin/user/{{ $item->id }}/edit" class="btn btn-success mx-2"><i class="fas fa-edit"></i> Edit</a>

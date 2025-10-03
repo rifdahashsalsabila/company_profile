@@ -15,27 +15,33 @@ class AdminAuthController extends Controller
         ];
         return view('home.layout.wrapper', $data);
     }
-    function doLogin(Request $request)
+    public function dologin(Request $request)
     {
-        // dd($request->all());
-        $data = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($data)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/admin/dashboard');
+
+            if (Auth::user()->role === 'admin') {
+                
+                return redirect()->route('admin.dashboard');
+            } elseif (Auth::user()->role === 'customer') {
+                
+                return redirect()->route('booking.create');
+            } else {
+                Auth::logout();
+                return back()->withErrors(['email' => 'Role tidak dikenali.']);
+            }
         }
 
-        return back()->with('LoginError', 'Gagal login, email atau password tidak ditemukan');
+        return back()->withErrors(['email' => 'Email atau password salah']);
     }
-        function logout()
-        {
-         Auth::logout();
-         request()->session()->invalidate();
-         request()->session()->regenerateToken();
+    function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
 
-         return redirect('/');
-        }
+        return redirect('/');
+    }
 }

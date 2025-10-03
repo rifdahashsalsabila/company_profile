@@ -10,10 +10,14 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
-        'alamat',
-        'no_hp',
+        'user_id',
         'layanan',
         'tanggal',
+        'status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -50,8 +50,9 @@ class AdminUserController extends Controller
             'email' => 'required|unique:users',
             'password' => 'required|min:3',
             're_password' => 'required|same:password',
+            'role' => 'required|in:admin,customer',
         ]);
-
+        
         $data['password'] = Hash::make($data['password']);
 
         User::create($data);

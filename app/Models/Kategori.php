@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-   protected $fillable = ['nama_kategori'];
+   protected $fillable = ['name'];
 
     // Relasi: 1 kategori punya banyak blog
     public function blogs()
