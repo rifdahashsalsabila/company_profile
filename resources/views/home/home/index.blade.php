@@ -22,6 +22,7 @@
         letter-spacing: 2px;
         color: #202025ff;
         text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+
     }
 
     .title-section::after {
@@ -55,18 +56,9 @@
                     <h1 class="text-shadow-white">{{ $item->headline }}</h1>
                     <p class="text-shadow-white">{{ $item->desc }}</p>
                     <p>
-                        @auth
-                        @if(auth()->user()->role === 'customer')
                         <a href="{{ route('booking.create') }}" class="btn btn-outline-secondary">
-                            <i class="fa-solid fa-calendar-check"></i> Booking Here
+                            <i class="fa-solid fa-calendar-check"></i> Booking here
                         </a>
-                        @endif
-                        @endauth
-
-                        @guest
-                        <a href="{{ route('register') }}" class="btn btn-outline-secondary">
-                            <i class="fa-solid fa-calendar-check"></i>Booking Here</a>
-                        @endguest
 
                     </p>
 
@@ -148,8 +140,9 @@
 </div>
 
 <div class="container my-5">
+    <!-- Section Title -->
     <div class="text-center mb-5">
-        <h4 class="w-bold display-8 text-uppercase position-relative d-inline-block title-section">
+        <h4 class="fw-bold text-uppercase d-inline-block position-relative">
             Blog
         </h4>
         <p class="text-muted mt-3">
@@ -157,21 +150,24 @@
         </p>
     </div>
 
+    <!-- Blog Cards -->
     <div class="row g-4">
         @foreach ($blog as $item)
         <div class="col-md-3 col-sm-6">
             <div class="card h-100 border-0 shadow-sm">
-                <img src="/{{ $item->cover }}" class="card-img-top img-fluid" alt="Cover Blog">
+                @if($item->cover)
+                <img src="/{{ $item->cover }}" class="card-img-top img-fluid" alt="{{ $item->title }}">
+                @endif
 
-                <div class="card-body">
-                    <a href="/blog/show/{{ $item->id }}" class="text-decoration-none">
+                <div class="card-body d-flex flex-column">
+                    <a href="/blog/show/{{ $item->id }}" class="text-decoration-none text-dark">
                         <h5 class="fw-semibold mb-2">{{ $item->title }}</h5>
                     </a>
-                    <p class="text-muted mb-3">
-                        {!! Illuminate\Support\Str::limit($item->body) !!}
+                    <p class="text-muted flex-grow-1">
+                        {{ Illuminate\Support\Str::limit(strip_tags($item->body), 100) }}
                     </p>
-                    <a href="/blog/show/{{ $item->id }}" class="btn btn-outline-secondary btn-sm">
-                        Selengkapnya &RightArrow;
+                    <a href="/blog/show/{{ $item->id }}" class="btn btn-outline-secondary btn-sm mt-auto">
+                        Selengkapnya →
                     </a>
                 </div>
             </div>
@@ -179,7 +175,7 @@
         @endforeach
     </div>
 
-
+    <!-- Lihat Semua -->
     <div class="text-center mt-5">
         <a href="/blog" class="btn btn-outline-secondary px-4">
             Lihat Semua Artikel

@@ -7,10 +7,10 @@
 
  <div class="position-absolute start-50 translate-middle-x text-center" style="bottom: 30px;">
   <h2 class="fw-bold btn outline-secondary px-4" 
-      style="font-size: 1.5rem; color: #464866ff; letter-spacing: 1px;  border: 1px solid #6c757d; 
+      style="font-size: 1.5rem; color: #464866ff; letter-spacing: 1px;  border: 1px solid #40445aff; 
              border-radius: 6px; 
              background: transparent; 
-             box-shadow: inset 0 2px 5px rgba(0,0,0,0.15); 
+             box-shadow: inset 0 2px 5px rgba(66, 72, 119, 0.77); 
              cursor: default;">
     About Us
     </h2>

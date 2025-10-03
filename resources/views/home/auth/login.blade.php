@@ -22,8 +22,25 @@
 
                         <div class="mb-4">
                             <label for="password" class="form-label"><b>Password</b></label>
-                            <input type="password" name="password" class="form-control" id="password" required>
+                            <div style="position: relative;">
+                                <input type="password" name="password" class="form-control" id="password" required>
+                                <i class="fas fa-eye" id="togglePassword"
+                                    style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;"></i>
+                            </div>
                         </div>
+
+                        <script>
+                            document.getElementById('togglePassword').addEventListener('click', function() {
+                                const input = document.getElementById('password');
+                                const type = input.type === 'password' ? 'text' : 'password';
+                                input.type = type;
+
+                                // toggle icon
+                                this.classList.toggle('fa-eye');
+                                this.classList.toggle('fa-eye-slash');
+                            });
+                        </script>
+
 
                         <button type="submit" class="btn btn-secondary w-100">
                             Sign in

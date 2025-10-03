@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\AboutAdminController;
 use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminAuthController;
@@ -19,7 +18,6 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/services', [HomeController::class, 'service']);
@@ -28,10 +26,9 @@ Route::get('/blog', [HomeBlogController::class, 'index']);
 Route::get('/blog/show/{id}', [HomeBlogController::class, 'show']);
 Route::get('/contact', [HomeContactController::class, 'index']);
 Route::post('/contact/send', [HomeContactController::class, 'send']);
-Route::resource('bookings', BookingController::class)->except(['create', 'store']);
-Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
+// Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
+// Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
@@ -62,9 +59,12 @@ Route::prefix('admin')
         Route::resource('/user', AdminUserController::class);
         Route::resource('/about', AdminAboutController::class);
         Route::resource('booking', BookingController::class)->except(['create', 'store']);
+        Route::resource('bookings', BookingController::class)->except(['create', 'store']);
+        Route::patch('/admin/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('admin.bookings.updateStatus');
+
 
         Route::post('/logout', function () {
             Auth::logout();
-            return redirect('/login')->with('success', 'Anda berhasil logout!');
+            return redirect('/')->with('success', 'Anda berhasil logout!');
         })->name('admin.logout');
     });

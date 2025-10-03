@@ -23,10 +23,10 @@ class AdminAuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role === 'admin') {
-                // kalau admin → ke dashboard admin
+                
                 return redirect()->route('admin.dashboard');
             } elseif (Auth::user()->role === 'customer') {
-                // kalau customer → ke halaman customer
+                
                 return redirect()->route('booking.create');
             } else {
                 Auth::logout();

@@ -33,7 +33,9 @@
                 </ul>
                 <form class="d-flex">
                     @auth 
+                      @if(auth()->check() && auth()->user()->role === 'admin')
                     <a href="/admin/dashboard" class="btn btn-outline-secondary"><i class="fas fa-user"></i> Dashboard</a>
+                    @endif
                     @else
                     <a href="/login" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                     @endauth

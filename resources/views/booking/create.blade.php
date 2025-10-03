@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,29 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-image: url('img/banner-2.jpg');
+      background: url("{{ asset('img/banner-2.jpg') }}") no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
       height: 100vh;
       margin: 0;
-      /* overlay gelap */
       position: relative;
     }
+
     body::after {
       content: "";
       position: absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background-color: rgba(0,0,0,0.5); /* gelapkan bg */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
     /* Card transparan dengan shadow */
     .booking-card {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       padding: 30px;
       z-index: 1;
@@ -39,11 +40,12 @@
     /* Responsive form elements */
     .booking-card input,
     .booking-card select {
-      background-color: rgba(255,255,255,0.8);
+      background-color: rgba(255, 255, 255, 0.8);
       border: none;
     }
   </style>
 </head>
+
 <body>
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="col-md-8 col-lg-6">
@@ -76,7 +78,8 @@
           </div>
 
           <div class="d-flex justify-content-between">
-            <a href="{{ url('/') }}" class="btn btn-outline-secondary px-4 rounded-3">Kembali</a>
+            <a href="{{ url('/') }}" class="btn btn-outline-primary px-4 rounded-3">Kembali<i class="fas fa-sign-out-alt"></i></a>
+      
             <button class="btn btn-primary px-4 rounded-3 shadow-sm">Kirim Booking</button>
           </div>
         </form>
@@ -84,4 +87,5 @@
     </div>
   </div>
 </body>
+
 </html>
