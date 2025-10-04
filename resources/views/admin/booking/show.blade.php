@@ -7,7 +7,7 @@
     <div class="card mt-3">
         <div class="card-body">
             <h5 class="card-title">Data Customer</h5> 
-            <p><strong>Nama:</strong> {{ $booking->user->name }}</p>
+            <p><strong>Nama:</strong> {{ $booking->user->nama }}</p>
             <p><strong>Email:</strong> {{ $booking->user->email }}</p>
             <p><strong>No HP:</strong> {{ $booking->user->no_tlp ?? '-' }}</p>
             <p><strong>Alamat:</strong> {{ $booking->user->alamat ?? '-' }}</p>
