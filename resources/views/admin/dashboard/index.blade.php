@@ -1,4 +1,4 @@
-
+@if(auth()->check() && auth()->user()->role === 'admin')
 <div class="row">
     <div class="col md 12">
         <div class="card">
@@ -73,6 +73,7 @@
         </div>
         <!-- /.info-box -->
     </div>
-
 </div>
-
+@else
+<P>SELAMAT DATANG COSTUMER</P>
+@endif

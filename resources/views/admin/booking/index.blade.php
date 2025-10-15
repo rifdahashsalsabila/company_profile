@@ -25,6 +25,7 @@
                             <td>{{ $booking->user->name ?? '-' }}</td>
                             <td>{{ $booking->layanan }}</td>
                             <td>{{ $booking->tanggal }}</td>
+                            @if(auth()->check() && auth()->user()->role === 'admin')
                             <td>
                                 <form action="{{ route('admin.bookings.updateStatus', $booking->id) }}" method="POST">
                                     @csrf
@@ -39,6 +40,11 @@
                                     </select>
                                 </form>
                             </td>
+                            @else
+                            <td>
+                            {{ $booking->status }}
+                            </td>
+                            @endif
 
 
                             <td>{{ $booking->created_at->format('d M Y H:i') }}</td>

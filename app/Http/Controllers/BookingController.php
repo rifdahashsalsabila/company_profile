@@ -8,18 +8,20 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    /**
-     * Halaman admin - daftar semua booking
-     */
     public function index()
     {
-        $bookings = Booking::with('user')->latest()->paginate(10);
+        $user = Auth::user();
+        if ($user->role === 'customer') {
+            $bookings = Booking::where('user_id', $user->id)
+                ->latest()
+                ->paginate(10);
+        }
+        else if ($user->role === 'admin') {
+            $bookings = Booking::latest()->paginate(10);
+        }
         return view('admin.booking.index', compact('bookings'));
     }
 
-    /**
-     * Form booking untuk customer
-     */
     public function create()
     {
         return view('booking.create');

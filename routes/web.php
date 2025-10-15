@@ -41,10 +41,16 @@ Route::get('/logout', [AdminAuthController::class, 'logout']);
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+    // Route::resource('bookings', BookingController::class)->except(['create', 'store']);
 });
 
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/')->with('success', 'Anda berhasil logout!');
+})->name('logout');
 
-
+// Route::resource('booking', BookingController::class)->except(['create', 'store']);
+Route::resource('bookings', BookingController::class)->except(['create', 'store']);
 
 Route::prefix('admin')
     ->middleware(['auth', 'role:admin'])
@@ -58,13 +64,7 @@ Route::prefix('admin')
         Route::resource('/pesan', AdminPesanController::class);
         Route::resource('/user', AdminUserController::class);
         Route::resource('/about', AdminAboutController::class);
-        Route::resource('booking', BookingController::class)->except(['create', 'store']);
-        Route::resource('bookings', BookingController::class)->except(['create', 'store']);
+        // Route::resource('booking', BookingController::class)->except(['create', 'store']);
+        // Route::resource('bookings', BookingController::class)->except(['create', 'store']);
         Route::patch('/admin/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('admin.bookings.updateStatus');
-
-
-        Route::post('/logout', function () {
-            Auth::logout();
-            return redirect('/')->with('success', 'Anda berhasil logout!');
-        })->name('admin.logout');
     });

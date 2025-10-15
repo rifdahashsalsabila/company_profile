@@ -1,9 +1,14 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="../../index3.html" class="brand-link">
+  @if(auth()->check() && auth()->user()->role === 'admin')
+  <a href="" class="brand-link">
     <span class="brand-text font-weight-light">Tjahya Teknik :: Admin</span>
   </a>
-
+  @else
+  <a href="" class="brand-link">
+    <span class="brand-text font-weight-light">Tjahya Teknik</span>
+  </a>
+  @endif
   <!-- Sidebar -->
   <div class="sidebar">
 
@@ -21,8 +26,7 @@
             </p>
           </a>
         </li>
-
-
+        @if(auth()->check() && auth()->user()->role === 'admin')
         <li class="nav-item" {{ Request::is('admin/pesan') ? 'active':'' }}>
           <a href="/admin/pesan" class="nav-link">
             <i class="nav-icon fas fa-envelope"></i>
@@ -96,9 +100,11 @@
             </p>
           </a>
         </li>
+        @endif
+
 
         <li class="nav-item">
-          <a href="/admin/booking" class="nav-link  {{ Request::is('admin/booking') ? 'active':'' }}">
+          <a href="/bookings" class="nav-link  {{ Request::is('bookings') ? 'active':'' }}">
             <i class="nav-icon fas fa-calendar-check"></i>
             <p>
               Booking
