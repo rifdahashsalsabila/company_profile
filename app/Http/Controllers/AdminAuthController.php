@@ -27,7 +27,7 @@ class AdminAuthController extends Controller
                 return redirect()->route('admin.dashboard');
             } elseif (Auth::user()->role === 'customer') {
                 
-                return redirect()->route('booking.create');
+                return redirect()->route('bookings');
             } else {
                 Auth::logout();
                 return back()->withErrors(['email' => 'Role tidak dikenali.']);

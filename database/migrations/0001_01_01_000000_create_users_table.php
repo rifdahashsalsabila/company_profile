@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('password');
 
             // role default customer
-            $table->string('role')->default('customer'); 
+            // $table->string('role')->default('customer'); 
 
             // khusus customer
-            $table->string('no_tlp', 20)->nullable(); 
-            $table->string('alamat')->nullable();
+            // $table->string('no_tlp', 20)->nullable(); 
+            // $table->string('alamat')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

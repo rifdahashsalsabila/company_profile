@@ -47,7 +47,7 @@ class AuthController extends Controller
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             } elseif (Auth::user()->role === 'customer') {
-                return redirect()->route('booking.create');
+                return redirect()->route('bookings');
             }
         }
     }
@@ -63,7 +63,7 @@ class AuthController extends Controller
 
             // cek role customer
             if (Auth::user()->role === 'customer') {
-                return redirect()->route('booking.create');
+                return redirect()->route('bookings');
             } else {
                 Auth::logout(); // logout jika bukan customer
                 return back()->withErrors(['email' => 'Anda bukan customer']);

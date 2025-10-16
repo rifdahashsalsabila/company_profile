@@ -40,7 +40,10 @@ Route::get('/logout', [AdminAuthController::class, 'logout']);
 
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+    // Route::get('/bookings', [BookingController::class, 'index'])->name('admin.booking.index');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings');
     // Route::resource('bookings', BookingController::class)->except(['create', 'store']);
 });
 
