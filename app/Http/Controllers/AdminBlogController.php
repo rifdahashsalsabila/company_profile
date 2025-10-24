@@ -16,7 +16,7 @@ class AdminBlogController extends Controller
     {
         //
         $data = [
-            'title' => 'Manajemen blog',
+            // 'title' => 'Manajemen blog',
             'blog' => Blog::with('kategori')->get(),
             'content' => 'admin/blog/index'
         ];

@@ -15,7 +15,7 @@ class AdminPesanController extends Controller
     {
         //
          $data = [
-            'title' => 'Manajemen Pesan',
+            // 'title' => 'Manajemen Pesan',
             'pesan' => Pesan::orderBy('created_at', 'desc')->get(),
             'content' => 'admin/pesan/index'
         ];
@@ -49,7 +49,7 @@ class AdminPesanController extends Controller
       $pesan->is_read = 1;
       $pesan->save();
       $data = [
-            'title' => 'Manajemen Pesan',
+            // 'title' => 'Manajemen Pesan',
             'pesan' => $pesan,
             'content' => 'admin/pesan/show'
         ];

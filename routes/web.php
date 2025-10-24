@@ -39,12 +39,13 @@ Route::get('/logout', [AdminAuthController::class, 'logout']);
 // =====CUSTOMER====
 
 Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+    Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-    // Route::get('/bookings', [BookingController::class, 'index'])->name('admin.booking.index');
-    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings');
-    // Route::resource('bookings', BookingController::class)->except(['create', 'store']);
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+    // Route::post('/bookings', [BookingController::class, 'store'])->name('bookings');
+    Route::get('/bookings/{booking}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
+    Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+
 });
 
 Route::post('/logout', function () {
@@ -67,7 +68,5 @@ Route::prefix('admin')
         Route::resource('/pesan', AdminPesanController::class);
         Route::resource('/user', AdminUserController::class);
         Route::resource('/about', AdminAboutController::class);
-        // Route::resource('booking', BookingController::class)->except(['create', 'store']);
-        // Route::resource('bookings', BookingController::class)->except(['create', 'store']);
         Route::patch('/admin/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('admin.bookings.updateStatus');
     });

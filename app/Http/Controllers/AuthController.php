@@ -37,7 +37,7 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('booking.create');
+        return redirect()->route('bookings.create');
     }
 
     // Menampilkan form login

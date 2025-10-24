@@ -15,7 +15,7 @@ class AdminKategoriController extends Controller
     {
         //
         $data = [
-            'title' => 'Manajemen Kategori',
+            // 'title' => 'Manajemen Kategori',
             'kategori' => Kategori::all(),
             'content' => 'admin/kategori/index'
         ];

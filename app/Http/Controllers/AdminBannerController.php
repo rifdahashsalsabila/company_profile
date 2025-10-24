@@ -17,7 +17,7 @@ class AdminBannerController extends Controller
     {
         //
         $data = [
-            'title' => 'Manajemen banner',
+            // 'title' => 'Manajemen banner',
             'banner' => banner::get(),
             'content' => 'admin/banner/index'
         ];

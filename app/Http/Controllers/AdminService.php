@@ -19,7 +19,7 @@ class AdminService extends Controller
 
         
         $data = [
-            'title' => 'Manajemen Service',
+            // 'title' => 'Manajemen Service',
             'service' => Service::get(),
             'content' => 'admin.service.index'
         ];

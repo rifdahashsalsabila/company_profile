@@ -8,7 +8,7 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow">
         <div class="container">
-            <a class="navbar-brand" href="#">Fixed navbar</a>
+            <a class="navbar-brand" href="#">Tjahya Teknik</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,8 +40,8 @@
                     <a href="/login" class="btn btn-outline-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                     @endauth
                     @if(auth()->check() && auth()->user()->role === 'customer')
-                    <a href="/logout" class="btn btn-outline-secondary"><i class="far fa-caret-square-left"></i>
-                        Logout
+                    <a href="/bookings" class="btn btn-outline-secondary">
+                        Dashboard
                     </a>
                     @endif
 
