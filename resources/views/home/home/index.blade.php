@@ -254,5 +254,21 @@
                 </a>
             </div>
         </div>
+
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+                       <div class="card border-0 shadow-sm text-center p-5 bg-light">
+                <h4>Menyediakan berbagai macam solusi kerusakan AC</h4>
+                <a href="https://youtube.com/@tjahyateknik?si=fHf-qs9xTrjjAHr4" target="_blank">
+                    <img src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg" width="120">
+                </a>
+                <p>Klik logo untuk membuka channel YouTube.</p>
+            </div>
+        </div>
+
     </div>
 </div>
