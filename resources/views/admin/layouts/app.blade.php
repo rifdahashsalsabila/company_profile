@@ -7,6 +7,8 @@
   <title>AdminLTE 3 | Dashboard</title>
 
   @include('admin.layouts.style')
+  <link rel="stylesheet" href="{{ asset('AdminLTE/css/mystyle.css') }}">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

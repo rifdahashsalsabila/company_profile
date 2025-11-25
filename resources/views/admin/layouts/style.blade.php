@@ -18,3 +18,5 @@
   <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/summernote/summernote-bs4.min.css">
+  <!-- mystyle.css -->
+   <link rel="stylesheet" href="/public/mystyle.css">

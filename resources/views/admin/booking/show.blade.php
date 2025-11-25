@@ -6,7 +6,7 @@
     <!-- Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="fw-semibold text-dark mb-0">
-             Detail Booking
+            Detail Booking
         </h3>
         <a href="{{ route('bookings.index') }}"
             class="btn btn-light border rounded-pill px-4 py-2 fw-medium shadow-sm"
@@ -57,31 +57,30 @@
                     <small class="text-muted d-block">Layanan</small>
                     <span class="fw-medium text-dark">{{ $booking->layanan }}</span>
                 </div>
-                <div class="col-md-6">
-                    <small class="text-muted d-block">Tanggal Booking</small>
-                    <span class="fw-medium text-dark">
-                        {{ \Carbon\Carbon::parse($booking->tanggal)->translatedFormat('d F Y') }}
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <small class="text-muted d-block">Status</small>
-                    @php
-                    $statusColor = match($booking->status) {
-                    'pending' => '#f8d775',
-                    'selesai' => '#b4e197',
-                    'batal' => '#f3a8a8',
-                    default => '#c7c7c7'
-                    };
-                    @endphp
+                @php
+                $statusClass = match($booking->status) {
+                'pending' => 'status-pending',
+                'selesai' => 'status-selesai',
+                'batal' => 'status-batal',
+                default => 'status-default',
+                };
+                @endphp
 
-                </div>
-                <div class="col-md-6">
-                    <small class="text-muted d-block">Dibuat pada</small>
-                    <span class="fw-medium text-dark">{{ $booking->created_at->format('d M Y H:i') }}</span>
-                </div>
+                <span class="status-badge {{ $statusClass }}">
+                    {{ ucfirst(str_replace('_',' ', $booking->status)) }}
+                </span>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+                <small class="text-muted d-block">Dibuat pada</small>
+                <span class="fw-medium text-dark">{{ $booking->created_at->format('d M Y H:i') }}</span>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 

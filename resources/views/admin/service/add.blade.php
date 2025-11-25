@@ -60,13 +60,3 @@
     </div>
 </div>
 
-<style>
-    .form-control:focus {
-        background-color: #f0f2f7;
-        box-shadow: 0 0 0 0.2rem rgba(130, 130, 160, 0.25);
-    }
-
-    .btn-primary:hover {
-        background-color: #3b3b55 !important;
-    }
-</style>

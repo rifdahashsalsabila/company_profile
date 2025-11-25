@@ -1,28 +1,172 @@
- .wrapper-card-blog{
-      width: 100%;  
-      height: 150px;
-      overflow: hidden;
-    }
+/* =======================
+   BLOG & HERO
+   ======================= */
+.wrapper-card-blog {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
 
-    .img-card-blog{
-        width: 100%;
-    }
+.img-card-blog {
+    width: 100%;
+}
 
-    .wrapper-hero{
-      width: 100%;
-      max-height: 300px;
-      overflow: hidden;
-    }
+.wrapper-hero {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+}
 
-    .img-hero{
-      position: relative;
-    }
+.img-hero {
+    position: relative;
+}
 
-    .text-hero{
-      position: absolute;
-      top: 200px;
-      width: 100%;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
+.text-hero {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =======================
+   GLOBAL BACKGROUND
+   ======================= */
+body {
+    background: #f4f6f9;
+}
+
+/* =======================
+   GLOBAL CARD STYLE
+   ======================= */
+.card {
+    border: none !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden;
+}
+
+.card-header {
+    background: #f7f7f7 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    padding: 16px 20px !important;
+    font-weight: 600 !important;
+    color: #444 !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.card-body {
+    padding: 20px 24px !important;
+}
+
+/* =======================
+   GLOBAL BUTTONS
+   ======================= */
+.btn {
+    border-radius: 8px !important;
+    padding: 8px 18px !important;
+    font-weight: 500 !important;
+    transition: 0.2s !important;
+}
+
+/* Primary */
+.btn-primary {
+    background: #6c63ff !important;
+    border-color: #6c63ff !important;
+}
+
+.btn-primary:hover {
+    background: #5a52e0 !important;
+}
+
+/* Light (Back Button) */
+.btn-light {
+    border: 1px solid #dcdcdc !important;
+    color: #333 !important;
+}
+
+.btn-light:hover {
+    background: #efefef !important;
+}
+
+/* Danger */
+.admin-btn-danger,
+.btn-outline-danger {
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+    background: #fff !important;
+}
+
+.admin-btn-danger:hover,
+.btn-outline-danger:hover {
+    background: #dc3545 !important;
+    color: #fff !important;
+}
+
+/* =======================
+   FORM STANDARD
+   ======================= */
+.form-group label {
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+    color: #333 !important;
+}
+
+.form-control {
+    border-radius: 8px !important;
+    border: 1px solid #d8d8d8 !important;
+    height: 42px !important;
+}
+
+.form-control:focus {
+    background-color: #f0f2f7 !important;
+    border-color: #6c63ff !important;
+    box-shadow: 0 0 0 0.15rem rgba(108, 99, 255, 0.25) !important;
+}
+
+/* =======================
+   TABLE STANDARD
+   ======================= */
+.table thead th {
+    background: #e9ecef !important;
+    font-weight: 600 !important;
+    text-align: center;
+    color: #444 !important;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    background-color: #fcfcfc !important;
+    color: #444 !important;
+}
+
+.table tbody tr:hover {
+    background: #f6f6f9 !important;
+}
+
+/* =======================
+   STATUS BADGE
+   ======================= */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+    color: #333 !important;
+}
+
+.status-pending {
+    background: #f8d775 !important;
+}
+.status-selesai {
+    background: #b4e197 !important;
+}
+.status-batal {
+    background: #f3a8a8 !important;
+}
+.status-default {
+    background: #c7c7c7 !important;
+}
+
